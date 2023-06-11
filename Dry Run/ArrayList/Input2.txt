@@ -1,0 +1,22 @@
+-> this is first file from notepad++
+2:49 AM 5/29/2023
+
+Node<Integer> takeInput2(){
+	Scanner s = new Scanner(System.in);
+	int data = s.nextInt();
+	Node<Integer> head, tail;
+	while(data != -1) {
+		Node<Integer> currentNode = new Node<Integer>();
+		if(head == null) {
+			head = currentNode;
+			tail = currentNode;
+		} else {
+			tail = currentNode;
+		}
+		data = s.nextInt();
+	}
+	return head;
+}
+
+------------------------------------------------
+// dry run begins from here

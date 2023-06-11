@@ -1,0 +1,34 @@
+// This is question first Index of Number
+public static int firstIndex(int[] input, int x, int startIndex) {
+	if(startIndex == input.length) {
+		return -1;
+	}
+	if(input[startIndex] == x) {
+		return startIndex;
+	}
+	return firstIndex(input, x, startIndex+1);
+}
+
+index-> {0,1,2 ,3}
+arr[] = {9,8,10,8}
+x = 8
+---------------------------------------------------
+first call from main function:
+firstIndex(arr,x,0)
+---------------------------------------------------
+startIndex = 0
+0 == 4 => False
+input[0] == 8 => 9 == 8 => False
+return firstIndex(arr,x,1)
+---------------------------------------------------
+startIndex = 1
+1 == 4 => False
+input[1] = 8 => 10 == 8 => False
+return firstIndex(arr,x,2)
+---------------------------------------------------
+startIndex = 2
+2 == 4 => False
+input[2] = 8 => 8 == 8 => True
+	return 2
+---------------------------------------------------
+Output: 2

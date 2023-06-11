@@ -1,0 +1,14 @@
+// If you use min heap given array will be sorted in decreasing order.
+// If use max heap given array will be sorted in increasing order or normal order.
+
+// min priority queue is also known as min heap
+// max priority queue is also known as max heap
+
+
+Note:-
+Difference in our priority queue and inbuilt priority queue
+1. isEmpty() ----> empty()
+2. getSize() ----> size()
+3. insert()  ----> push()
+4. getMin()  ----> T top() ==> will give max element because in inbuilt priority queue is max by default
+5. removeMin() ----> pop()

@@ -1,0 +1,114 @@
+public static String[] findSubsequences(String str) {
+	if(str.length() == 0) {
+		String ans[] = {""};
+		return ans;
+	}
+		
+	String smallAns[] = findSubsequences(str.substring(1));
+	String ans[] = new String[2 * smallAns.length];
+		
+	for(int i = 0; i < smallAns.length; i++) {
+		ans[i] = smallAns[i];
+	}
+		
+	for(int i = 0; i < smallAns.length; i++) {
+		ans[i + smallAns.length] = str.charAt(0) + smallAns[i];  
+	}
+		
+	return ans;
+}
+-----------------------------------------------------------------
+index->  012
+input = "xyz"
+-----------------------------------------------------------------
+smallAns[] = {"", "z", "y", "yz"}
+ans[] = {"", "z", "y", "yz", "x", "xz", "xy", "xyz"}
+
+first call:
+str = "xyz"
+3 == 0 => False
+smallAns[] = findSubsequences("yz")
+ans[] = new String[6]
+
+i = 0; i < 4; i++ => True
+ans[0] = smallAns[0]
+
+i = 1; i < 4; i++ => True
+ans[1] = smallAns[1]
+
+i = 2; i < 4; i++ => True
+ans[2] = smallAns[2]
+
+i = 3; i < 4; i++ => True
+ans[3] = smallAns[3]
+
+i = 4; i < 4; i++ => False
+
+i = 0; i < 4; i++ => True
+ans[0 + 4] = str.charAt(0) + smallAns[0] => x + "" => "x"
+
+i = 1; i < 4; i++ => True
+ans[1 + 4] = str.charAt(0) + smallAns[1] => x + "z" => "xz"
+
+i = 2; i < 4; i++ => True
+ans[2 + 4] = str.charAt(0) + smallAns[2] => x + "y" => "xy"
+
+i = 3; i < 4; i++ => True
+ans[2 + 4] = str.charAt(0) + smallAns[3] => x + "yz" => "xyz"
+
+i = 4; i < 4; i++ => False
+
+return ans
+-----------------------------------------------------------------
+smallAns[] = {"", "z"}
+ans[] = {"", "z", "y", "yz"}
+
+second call:
+str = "yz"
+2 == 0 => False
+smallAns[] = findSubsequences("z")
+ans[] = new String[4]
+
+i = 0; i < 2; i++ => True
+ans[0] = smallAns[0]
+
+i = 1; i < 2; i++ => True
+ans[0] = smallAns[1]
+
+i = 2; i < 2; i++ => False
+
+i = 0; i < 2; i++ => True
+ans[0 + 2] = charAt(0) + smallAns[0] => y + "" => "y"
+
+i = 1; i < 2; i++ => True
+ans[1 + 2] = charAt(0) + smallAns[1] => y + "z" => "yz"
+
+i = 2; i < 2; i++ => False
+
+return ans
+-----------------------------------------------------------------
+smallAns[] = {""}
+ans[] = {"", "z"}
+
+third call:
+str = "z"
+1 == 0 => False
+smallAns[] = findSubsequences("") => {""}
+ans[] = new String[2]
+
+i = 0; i < 1 => True
+ans[0] = smallAns[0] => {"", }
+
+i = 1; i < 1 => False
+
+i = 0; i < 1 => True
+ans[0+1] = str.charAt(0) + smallAns[0] => z + "" => "z"
+
+i = 1; i < 1 => False
+
+return ans
+-----------------------------------------------------------------
+fourth call:
+str = ""
+0 == 0 => True
+return {""}

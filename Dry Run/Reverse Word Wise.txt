@@ -1,0 +1,44 @@
+// Reverse Word Wise
+public static String reverseWordWise(String input){
+  for(int i = 0, j = input.length()-1; i < j; i++, j--){
+    // swap(input.charAt(i), input.charAt(j));
+    char ch;
+    ch = input.charAt(i);
+    input.charAt(i) = input.charAt(j);
+    input.charAt(j) = ch;
+    // The above code throws an error in java
+  }
+}
+
+str = "abc def ghi jkl"
+str = "jkl ghi def abc" => Output required
+
+// Special approach
+str = "abc def ghi jkl"
+str = "jkl ghi def abc" => Output required
+
+index		char value
+0 -> a
+1 -> b
+2 -> c
+3 -> space
+4 -> d
+5 -> e
+6 -> f
+7 -> space
+8 -> g
+9 -> h
+10-> i
+11-> space
+12-> j
+13-> k
+14-> l
+
+// Reverse the string then again reverse the substrings before space with a special condition
+public static void fun(String st){
+	// reverse the string
+	// after reversing the string
+	output -> lkj
+}
+
+

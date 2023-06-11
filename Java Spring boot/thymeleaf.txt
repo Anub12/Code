@@ -1,0 +1,23 @@
+th:action => 
+
+th:object => 
+
+th:field => 
+
+To bind any type of form we need these three thymeleaf attributes.
+
+for example, look at page 3 of Thymeleaf Form Handling pdf
+
+
+for variable expressions we use th:each = "variable name from java file, can be post"
+proper way to write it is
+	-> th:each = "post, postStat : ${posts}"
+	
+with above th:each attribute we can access posts from java class. We can print posts to HTML page.
+
+Five types of Thymeleaf standard expressions:​
+ ${...} : Variable expressions​
+ *{...} : Selection expressions​
+ #{...} : Message (i18n) expressions​
+ @{...} : Link (URL) expressions​
+ ~{...} : Fragment expressions

@@ -1,0 +1,8 @@
+#body-header{
+    height: 85vh;
+    opacity: 0.8;
+    background-image: url(Image/workplace_1920.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}

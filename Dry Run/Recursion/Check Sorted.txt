@@ -1,0 +1,92 @@
+public static boolean checkSorted(int[] arr){
+	for(int i=0;i<n;i++){
+		if(arr[i] > arr[i+1]){
+			return true;
+		}else{
+			return false;
+		}
+	}
+}
+----------------------------------------------
+public static boolean checkSorted(int[] arr){
+	if(arr.length<=1){
+		return true;
+	}
+	int i=0;
+	if(arr[i] < arr[i+1]){
+		return true;
+		// This can give array out of bound Exception
+	}
+	checkSorted(arr+1);
+}
+----------------------------------------------
+public static boolean checkSorted(int[] arr){
+	if(arr.length <= 1){
+		return true;
+	}
+	int[] arr2 = new int[n-1];
+	for(int i=0; i<arr.length; i++){
+		arr2[i] = arr[i-1];
+	}
+}
+----------------------------------------------
+index-> {0,1,2,3,4}
+arr =   {5,2,1,3,4}
+
+arr.length<=1 => 5<=1 => False
+arr2[] size => n-1 => 4
+arr2[] = {_,_,_,_}
+i=0 => 0<5 => True
+	arr2[0] = arr[-1] => arr2[4] = 3 // array out of bound exception
+i=3 => 3>0 => True
+	arr2[3] = arr[2] => arr2[3] = 1
+i=2 => 2>0 => True
+	arr2[2] = arr[1] => arr2[2] = 2
+i=1 => 1>0 => True
+	arr2[1] = arr[0] => arr2[1] = 5
+i=0 => 0>0 => False
+arr2 = {}
+=================================================================
+public static boolean checkSorted(int[] input, int startIndex) {
+	if(startIndex >= input.length-1) {
+		return true;
+	}
+	if(input[startIndex] >= input[startIndex+1]) {
+		return false;
+	}
+	boolean output = checkSorted(input, startIndex+1);
+	return output;
+}
+----------------------------------------------
+index->  {0,1,2,3,4}
+arr2[] = {1,2,4,5,6}
+----------------------------------------------
+startIndex = 0
+0 >=(5-1) => 0 >= 4 => False
+input[0]>=input[1] => 1 >= 2 => False
+output = checkSorted(input,1)
+return True
+----------------------------------------------
+startIndex = 1
+1>=4 => False
+input[1]>=input[2] => 2>=4 => False
+output = checkSorted(input,2)
+return True
+----------------------------------------------
+startIndex = 2
+2>=4 => False
+input[2]>=input[3] => 4>=5 => False
+output = checkSorted(input,3)
+return True
+----------------------------------------------
+startIndex = 3
+3>=4 => False
+input[3]>=input[4] => 5>=6 => False
+output = checkSorted(input,4)
+return True
+----------------------------------------------
+startIndex = 4
+4>=4 => return True
+return True
+----------------------------------------------
+

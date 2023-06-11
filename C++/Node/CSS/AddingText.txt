@@ -1,0 +1,15 @@
+#my-name{
+    padding: 4px 2px 2px 4px;
+    color: white;
+    font-size: 3rem;
+    letter-spacing: 0.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+
+<div class="text-center">
+                <h1 id="my-name">
+                    Anubhav Gahlawat
+                </h1>
+            </div>

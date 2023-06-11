@@ -1,0 +1,137 @@
+// merge sort
+public static void merge(int[] array, int left, int mid, int right){
+  int[] temp = new int[right+1];
+  int i = left;
+	int j = mid+1;
+	int k = 0;
+	while(i <= mid && j <= right) {
+		if(array[i] <= array[j]) {
+			temp[k++] = array[i++];
+		}
+		else {
+			temp[k++] = array[j++];
+		}
+	}
+	while(i <= mid) {
+		temp[k++] = array[i++];
+	}
+	while(j <= right) {
+		temp[k++] = array[j++];
+	}
+	k--;
+	while(k >= 0) {
+		array[k+left] = temp[k];
+		k--;
+	}
+}
+
+public static void MergeSort(int[] array, int left, int right) {
+	int mid;
+	if(left < right) {
+		mid = (left + right) / 2;
+		MergeSort(array, left, mid);
+		MergeSort(array, mid+1, right);
+		merge(array, left, mid, right);
+	}
+}
+
+index->   { 0, 1, 2, 3,  4, 5,  6,7,   8}
+array[] = {95,45,48,98,485,65,478,1,2325}
+--------------------------------------------------
+n = 9
+left = 0, right = 8 => 0 < 8 => True
+  mid = (0+8)/2 = 4
+  MergeSort(array,0,4) -
+  MergeSort(array,5,8)  |                             -
+  merge(array,0,4,8)    |  
+--------------------------------------------------      |
+  recursion - 1        <-                               |
+  new mid will be initialized in the memory             |
+index->   { 0, 1, 2, 3,  4}                             |
+array[] = {95,45,48,98,485}                             |
+  mid = (0+4)/2 = 2                                     |
+  MergeSort(array,0,2)                                  |
+  MergeSort(array,3,4)                                  |
+  merge(array,0,2,4)
+--------------------------------------------------      |
+  recursion - 2                                         |
+  new mid will be initialized in the memory             |
+index->   { 3,   4}                                     |
+array[] = {98, 485}                                     |
+  left = 3, right = 4                                   |
+  mid = (3+4)/2 = 3                                     |
+  MergeSort(array,3,3)                                  |
+  MergeSort(array,4,4)                                  |
+  merge(array,3,3,4)                                    |
+--------------------------------------------------      |
+  recursion - 3                                         |
+  new mid will be initialized in the memory             |
+index->   { 0, 1, 2}                                    |
+array[] = {95,45,48}                                    |
+  mid = (0+2)/2 = 1                                     |
+  MergeSort(array,0,1)                                  |
+  MergeSortarray,2,2)                                   |
+  merge(array,0,1,2) 
+--------------------------------------------------      |
+  recursion - 4                                         |
+  new mid will be initialized in the memory             |
+index->   { 0, 1}                                       |
+array[] = {95,45}                                       |
+  mid = (0+1)/2 = 0                                     |
+  MergeSort(array,0,0)                                  |
+  MergeSort(array,1,1)                                  |
+  merge(array,0,0,1) 
+--------------------------------------------------      |
+  recursion - 5                                         |
+  new mid will be initialized in the memory             |
+index->   { 5,  6,7,   8}                               |
+array[] = {65,478,1,2325}                               |
+  left = 5, right = 8                                   |
+  mid = (5+8)/2 = 6                                   <-
+  MergeSort(array,5,6)
+  MergeSort(array,7,8)
+  merge(array,5,6,8)
+--------------------------------------------------
+  recursion - 6
+  new mid will be initialized in the memory
+index->   { 5,  6}
+array[] = {65,478}
+  left = 5, right = 6
+  mid = (5+6)/2 = 5
+  MergeSort(array,5,5)
+  MergeSort(array,6,8)
+  merge(array,5,6,8)
+--------------------------------------------------
+  recursion - 7
+  new mid will be initialized in the memory
+index->   {  6,7,   8}
+array[] = {478,1,2325}
+  left = 6, right = 8
+  mid = (6+8)/2 = 7
+  MergeSort(array,6,7)
+  MergeSort(array,7,8)
+  merge(array,6,7,8)
+--------------------------------------------------
+  recursion - 8
+  new mid will be initialized in the memory
+index->   {  6,7}
+array[] = {478,1}
+  left = 6, right = 7
+  mid = (6+7)/2 = 6
+  MergeSort(array,6,6)
+  MergeSort(array,7,8)
+  merge(array,6,7,8)
+--------------------------------------------------
+  recursion - 9
+  new mid will be initialized in the memory
+index->   {7,   8}
+array[] = {1,2325}
+  left = 7, right = 8
+  mid = (7+8)/2 = 7
+  MergeSort(array,7,8)
+  MergeSort(array,8,8)
+  merge(array,7,7,8)
+--------------------------------------------------
+
+// Do it again
+

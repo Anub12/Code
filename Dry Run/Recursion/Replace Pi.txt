@@ -1,0 +1,67 @@
+public static String replacePi(String input) {
+	if(input.length() == 0) {
+		return "";
+	}
+	char c;
+	if(input.charAt(0) == 'p' && input.charAt(1) == 'i') {
+		return "3.14" + replacePi(input.substring(2));
+	}
+	else {
+		c = input.charAt(0);
+	}
+	return c + replacePi(input.substring(1));
+}
+--------------------------------------------------------
+index-> 0123
+input = xpix
+--------------------------------------------------------
+first call:
+index-> 0123
+input = xpix
+input.length == 0 => 4 == 0 => False
+input[0] == p => False
+c = 'x'
+return c + replacePi("pix") => x3.14x
+--------------------------------------------------------
+second call:
+index-> 012
+input = pix
+input.length == 0 => 3 == 0 => False
+input[0] = p && input[1] = i => True
+	return "3.14" + replacePi("x") => 3.14x
+--------------------------------------------------------
+third call:
+index-> 0
+input = x
+input.length == 0 => 1 == 0 => False
+input[0] == p => False
+c = 'x'
+return c + replacePi("") => x
+--------------------------------------------------------
+fourth call:
+index-> 0
+input = ""
+input.length == 0 => 0 == 0 => True
+return ""
+========================================================
+index-> 0123456789 10 11 12 13 14 15 16 17
+input = pipixpixpi x  p  i  a  p  i  b  p
+--------------------------------------------------------
+first call:
+18 == 0 -> False
+return "3.14" + replacePi("ipixpixpixpiapibp")
+--------------------------------------------------------
+second call:
+17 == 0 -> False
+return 
+--------------------------------------------------------
+third call:
+--------------------------------------------------------
+fourth call:
+--------------------------------------------------------
+fifth call:
+--------------------------------------------------------
+sixth call:
+--------------------------------------------------------
+seventh call:
+--------------------------------------------------------

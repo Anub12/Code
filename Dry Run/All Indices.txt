@@ -1,0 +1,104 @@
+public static int[] allIndices(int[] input, int x, int startIndex) {
+	if(startIndex == input.length) {
+		int output[] = new int[0];
+		return output;
+	}
+	int[] smallOutput = allIndices(input,x,startIndex+1);
+	if(input[startIndex] == x) {
+		int output[] = new int[smallOutput.length+1];
+		output[0] = startIndex;
+		for(int i = 0; i < smallOutput.length; i++) {
+			output[i+1] = smallOutput[i];
+		}
+		return output;
+	}
+	else {
+		return smallOutput;
+	}
+}
+----------------------------------------------------------
+index-> {0,1,2,3,4,5,6}
+arr[] = {1,2,3,3,4,3,5}
+x=3
+----------------------------------------------------------
+first call:
+startIndex = 0
+allIndices(arr,x,0)
+0 != 7 => False
+smallOutput = allIndices(arr,x,1)
+smallOutput[] = {2,3,5}
+input[0] == x => False
+return smallOutput
+----------------------------------------------------------
+second call:
+startIndex = 1
+allIndices(arr,x,1)
+1 != 7 => False
+smallOutput = allIndices(arr,x,2)
+smallOutput[] = {2,3,5}
+input[1] == x => False
+return smallOutput
+----------------------------------------------------------
+third call:
+startIndex = 2
+2 != 7 => False
+smallOutput = allIndices(arr,x,3)
+smallOuput[2] = {3,5}
+input[2] == 3 => True
+output[] = new int[3]
+output[0] = 2
+i = 0; i < 2; i++ => True
+	output[1] = smallOutput[0] => output[1] = 3
+i = 1; i < 2; i++ => True
+	output[2] = smallOutput[1] => output[2] = 5
+i = 2; i < 2; i++ => False
+output[] => {2,3,5}
+return output
+----------------------------------------------------------
+fourth call:
+startIndex = 3
+3 != 7 => False
+smallOutput = allIndices(arr,x,4)
+smallOutput array => smallOutput[] = {5}
+input[3] = x => 3 == x => True
+output[] = new int[2]
+output[0] = 3 => new output array is created here
+i = 0; i < 1; i++ => True
+	output[1] = smallOutput[0] => output[1] = 5
+output array => output[2] = {3,5}
+return output
+----------------------------------------------------------
+fifth call:
+startIndex = 4
+4 != 7 => False
+smallOutput = allIndices(arr,x,5)
+smallOutput array => smallOutput[] = {5}
+input[4] == x => 4 == 3 => False
+return smallOutput
+----------------------------------------------------------
+sixth call:
+startIndex = 5
+5 != 7 => False
+smallOutput = allIndices(arr,x,6)
+smallOutput has empty array which was left from 7th call
+input[5] == x => 3 == x => True
+output[] = new int[1]
+output[0] = 5
+output array => output[] = {5}
+i = 0; 0 < 0; i++ => False
+return output =>
+----------------------------------------------------------
+seventh call:
+startIndex = 6
+6 != 7 => False
+smallOutput = allIndices(arr,x,7)
+smallOutput has empty array which was initialized in 8th call
+input[6] == 8 => 5 == 8 => False
+return smallOutput => empty array
+----------------------------------------------------------
+eighth call:
+7 == 7 => True
+output[] = {} => empty array initialized
+return output
+----------------------------------------------------------
+last call will return the required array {2,3,5}

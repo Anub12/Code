@@ -1,0 +1,40 @@
+6:43 PM 6/4/2023
+
+// Remove Duplicates
+
+address(2) represents address of node having data 2
+
+public static Node<Integer> removeDuplicates(Node<Integer> head) {
+	if(head == null) {
+		return head;
+	}
+	
+	Node<Integer> currHead = head;
+	while(currHead.next != null) {
+		if(currHead.data.equals(currHead.next.data)) {
+			currHead.next = currHead.next.next;
+		} else {
+			currHead = currHead.next;
+		}
+	}
+	return head;
+}
+--------------------------------------------------
+head
+	1 2 2 3 3 4 4 5 5 -1
+--------------------------------------------------
+	if(head == null) { => False
+	}
+	
+	Node<Integer> currHead = head
+	currHead.data = 1
+	currHead.next = address(2)
+	while(currHead.next != null) {
+		if(currHead.data.equals(currHead.next.data)) { => False
+		} else {
+			currHead = currHead.next
+			currHead.data = 2
+			currHead.next = address(2)
+		}
+	}
+--------------------------------------------------

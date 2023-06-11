@@ -1,0 +1,68 @@
+public static String removeX(String input) {
+	if(input.length() == 0) {
+		return "";
+	}
+	if(input.charAt(0) == 'x') {
+		return removeX(input.substring(1));
+	}
+	return input.charAt(0) + removeX(input.substring(1));
+}
+---------------------------------------------------------
+index-> 012345
+input = abxcxd
+---------------------------------------------------------
+first call:
+index->  012345
+input = "abxcxd"
+removeX(input)
+input.length() == 0 => 6 == 0 => False
+input.charAt(0) == 'x' => a == x => False
+return a + removeX("bxcxd") => "abcd"
+---------------------------------------------------------
+second call:
+index->  01234
+input = "bxcxd"
+removeX(input)
+input.length() == 0 => 5 == 0 => False
+input.charAt(0) == 'x' => b == x => False
+return b + removeX("xcxd") => "bcd"
+---------------------------------------------------------
+third call:
+index->   0123
+input =  "xcxd"
+removeX(input)
+input.length() == 0 => 4 == 0 => False
+input.charAt(0) == 'x' => x == x => True
+	return removeX("cxd") => "cd"
+---------------------------------------------------------
+fourth call:
+index->  012
+input = "cxd"
+removeX(input)
+input.length() == 0 => 3 == 0 => False
+input.charAt(0) == 'x' => c == x => False
+return c + removeX("xd") => "cd"
+---------------------------------------------------------
+fifth call:
+index->  01
+input = "xd"
+removeX(input)
+input.length() == 0 => 2 == 0 => False
+input.charAt(0) == 'x' => x == x => True
+	return removeX("d") => "d"
+---------------------------------------------------------
+sixth call:
+index->  0
+input = "d"
+removeX(input)
+input.length() == 0 => 1 == 0 => False
+input.charAt(0) == 'x' => d == x => False
+return d + removeX("") => "d"
+---------------------------------------------------------
+seventh call:
+index-> 0
+input = ""
+removeX(input)
+input.length == 0 => 0 == 0 => True
+return ""
+---------------------------------------------------------

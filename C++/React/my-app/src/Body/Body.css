@@ -1,0 +1,13 @@
+:root{
+    --primary: #333;
+    --secondary: #fd384d;
+    --heaven: #03fc90;
+    --dark: #282b29;
+}
+
+.a-links {
+    color: var(--primary);
+    background-color: var(--heaven);
+    border-radius: 0.5em;
+    display: block;
+}

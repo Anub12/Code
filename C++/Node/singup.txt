@@ -1,0 +1,39 @@
+<form action="" method="">
+	<div>
+		<label for="name"> Name </label> <br>
+		<input type="text" name="name" placeholder="Enter Name" id="name" required>
+	</div>
+	<div>
+		<label for="email"> Email </label> <br>
+		<input type="email" name="email" placeholder="abc@example.com" id="email" required>
+	</div>
+	<div>
+		<label for="password"> Password </label> <br>
+		<input type="password" name="password" placeholder="Enter Password" id="password" required>
+	</div>
+	<div>
+		<label for="country">Country </label> <br>
+		<input type="text" name="country" placeholder="Country" id="country" required>
+	</div>
+	<div>
+		<label for="phone"> Phone No. </label> <br>
+		<input type="tel" name="phone" placeholder="+91 for India" id="phone" required>
+	</div>
+	<div>
+		<label for="dateofbirth">Date of Birth: </label> <br>
+		<input type="date" name="dateofbirth" placeholder="DD/MM/YYYY" id="dateofbirth" required>
+	</div>
+	<div>
+		Gender
+		<input type="radio" name="gender" value="male" > Male
+		<input type="radio" name="gender" value="female" > Female
+		<input type="radio" name="gender" value="other"> Others
+	</div>
+	<div>
+	<input type="checkbox" name="course" value="details"> By checking this box you will allow us to share your data with other organizations.
+	</div>
+	<div>
+		<input type="submit">
+	</div>
+</form>
+

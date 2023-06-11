@@ -1,0 +1,75 @@
+7:01 PM 6/4/2023
+
+// This program shows how recursion function works
+
+public static void printReverse(Node<Integer> head) {
+	if(head == null) {
+		return;
+	}
+		
+	printReverse(head.next);
+	System.out.print(head.data + "->");
+}
+-------------------------------------------
+head
+	1 2 3 4 5 -1
+
+-------------------------------------------
+head = 1
+	printReverse(Node<Integer> head) {
+		if(head == null) { => False
+		}
+		printReverse(head.next)
+		head.next = address(2)
+		System.out.println(head.data + "->")
+	}
+-------------------------------------------
+head = 2
+first call:
+	printReverse(Node<Integer> head) {
+		if(head == null) { => False
+		}
+		printReverse(head.next)
+		head.next = address(3)
+		System.out.println(head.data + "->")
+	}
+-------------------------------------------
+head = 3
+second call:
+	printReverse(Node<Integer> head) {
+		if(head == null) { => False
+		}
+		printReverse(head.next)
+		head.next = address(4)
+		System.out.println(head.data + "->")
+	}
+-------------------------------------------
+head = 4
+third call:
+	printReverse(Node<Integer> head) {
+		if(head == null) { => False
+		}
+		printReverse(head.next)
+		head.next = address(5)
+		System.out.println(head.data + "->")
+	}
+-------------------------------------------
+head = 5
+fourth call:
+	printReverse(Node<Integer> head) {
+		if(head == null) { => False
+		}
+		printReverse(head.next)
+		head.next = null
+		System.out.println(head.data + "->")
+	}
+-------------------------------------------
+head = null
+fifth call:
+	printReverse(Node<Integer> head) {
+		if(head == null) { => True
+			return;
+		}
+	}
+-------------------------------------------
+output:- 5->4->3->2->1->

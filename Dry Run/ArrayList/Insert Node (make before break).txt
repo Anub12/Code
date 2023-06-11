@@ -1,0 +1,189 @@
+6:28 PM 5/29/2023
+
+Note: -> address(23) represents address of
+
+==============================================
+public static Node<Integer> insertNode(Node<Integer> head, int pos, int data) {
+	int currPos = 0;
+		
+	Node<Integer> newNode = new Node<Integer>(data);
+	if(pos == 0) {
+		newNode.next = head;
+		head = newNode;
+		return head;
+	}
+	Node<Integer> temp = head;
+	while(temp != null && currPos < (pos - 1)) {
+		temp = temp.next;
+		currPos++;
+	}
+	if(temp == null) {
+		return head;
+	}
+	newNode.next = temp.next;
+	temp.next = newNode;
+		
+	return head;
+}
+
+----------------------------------------------
+ head
+	2 4 6 8 10 -1
+Node<Integer> head2 = insertNode(head, 0, 13);
+
+----------------------------------------------
+	currPos = 0
+	// newNode will be created
+	newNode.data = 13
+	newNode.next = null
+	if(pos == 0) => True
+		newNode.next = head
+		head = newNode
+		return head
+
+ head
+	[13] -> 2 4 6 8 10 -1
+==============================================
+  head
+	11 19 23 37 43 57 68 -1
+Node<Integer> head2 = insertNode(head, 6, 78);
+pos = 6
+data = 78
+
+----------------------------------------------
+	currPos = 0
+	// newNode is created
+	if(pos == 0) => False
+	Node<Integer> temp = head
+	temp.data = 11
+	temp.next = head.next
+	while(temp != null && currPos < (pos - 1)) { => True
+		temp = temp.next => temp.data = 19, temp.next = address(23)
+		currPos++ => currPos = 1
+	}
+	
+newNode.data = 78
+newNode.next = null
+  head
+	11 19 23 37 43 57 68 -1
+----------------------------------------------
+	currPos = 1
+	temp.data = 19
+	temp.next = address(23)
+	while(temp != null && currPos < (pos - 1)) { => True
+		temp = temp.next
+		currPos++
+	}
+	
+  head
+	11 19 23 37 43 57 68 -1
+----------------------------------------------
+	currPos = 2
+	temp.data = 23
+	temp.next = address(37)
+	while(temp != null && currPos < (pos - 1)) { => True
+		temp = temp.next
+		currPos++
+	}
+
+  head
+	11 19 23 37 43 57 68 -1
+----------------------------------------------
+	currPos = 3
+	temp.data = 37
+	temp.next address(43)
+	while(temp != null && currPos < (pos - 1)) { => True
+		temp = temp.next
+		currPos++
+	}
+	
+  head
+	11 19 23 37 43 57 68 -1
+----------------------------------------------
+	currPos = 4
+	temp.data = 43
+	temp.next = address(57)
+	while(temp != null && currPos < (pos - 1)) { => True
+		temp = temp.next
+		currPos++
+	}
+	
+  head
+	11 19 23 37 43 57 68 -1
+----------------------------------------------
+	currPos = 5
+	temp.data = 57
+	temp.next = address(68)
+	while(temp != null && currPos < (pos - 1)) { => False
+	}
+	
+  head
+	11 19 23 37 43 57 68 -1
+----------------------------------------------
+	if(temp == null) => False
+	newNode.next = temp.next
+	temp.next = newNode (make before break)
+
+
+  head			  temp   newNode
+	11 19 23 37 43 57  ->  [78]  ->  68 -1
+-> newNode.next = address(68)
+-> temp.next = address(newNode)
+
+----------------------------------------------
+output:- 11->19->23->37->43->57->78->68->
+==============================================
+	public static Node<Integer> insertR(Node<Integer> head,int elem, int pos) {
+		
+		if(head == null && pos > 0) {
+			return head;
+		}
+		
+		if(pos == 0) {
+			Node<Integer> newNode = new Node<>(elem);
+			newNode.next = head;
+			return newNode;
+		} else {
+//			Node<Integer> smallerHead = insertR(head.next, elem, pos);
+//			head.next = smallerHead;
+			head.next = insertR(head.next, elem, pos-1);
+			return head;
+		}
+	}
+----------------------------------------------
+head
+	2 6 8 -1
+elem = 20, pos = 1
+----------------------------------------------
+first call:
+	head.data = 2
+	head.next = address(6)
+	if(head == null && pos > 0) {
+		return head
+	}
+	
+	else{
+		head.next = insertR(head.next, 20, 0)
+		return head
+	}
+----------------------------------------------
+second call:
+	head.data = 6
+	head.next = address(8)
+	if(head == null && pos > 0) {
+		return head
+	}
+	
+	if(pos == 0) {
+		Node<Integer> newNode = new Node<>(elem);
+		newNode.next = head;
+		return newNode;
+	}
+----------------------------------------------
+head
+	2 6 8 -1
+elem = 20, pos = 1
+	2->[20]->6 8 -1
+----------------------------------------------
+
+	

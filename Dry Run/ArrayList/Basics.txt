@@ -1,0 +1,9 @@
+ArrayList<Integer> arr = new ArrayList<Integer>();
+arr.add(10);  // {10, }
+arr.add(20); // {10, 20}
+arr.add(30); // {10, 20, 30}
+arr.add(1, 80); // {10, 80, 20}
+Integer x = 10; // x = 10
+arr.remove(x); // {80, 20}
+arr.set(2, x); // {80, 20, 10}
+

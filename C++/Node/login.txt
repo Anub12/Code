@@ -1,0 +1,15 @@
+<body>
+	<form>
+		<div>
+			<label for="email"> Email </label> <br>
+			<input type="text" placeholder="abc@example.com" id="email" required>
+		</div>
+		<div>
+			<label for="password"> Password </label> <br>
+			<input type="password" id="password" required>
+		</div>
+		<div>
+			<input type="submit">
+		</div>
+	</form>
+</body>

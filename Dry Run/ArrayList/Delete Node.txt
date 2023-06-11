@@ -1,0 +1,89 @@
+6:32 PM 5/31/2023
+address(7) represents address of node having data 7
+
+public static Node<Integer> deleteNode(Node<Integer> head, int pos) {
+	int currPos = 0;
+	if(head == null) {
+		return head;
+	}
+	if(pos == 0) {
+		return head.next;
+	}
+	Node<Integer> temp = head;
+	while(temp != null && currPos < (pos - 1)) {
+		temp = temp.next;
+		currPos++;
+	}
+	if(temp == null || temp.next == null) {
+		return head;
+	}
+	temp.next = temp.next.next;
+	return head;
+}
+----------------------------------------------------
+deleteNode(head, 4)
+----------------------------------------------------
+head
+   2 7 13 21 38 44 59 66 -1
+pos = 4
+----------------------------------------------------
+	currPos = 0
+	if(head == null) { => False
+	}
+	if(pos == 0) { => False
+	}
+	Node<Integer> temp = head;
+	temp.data = 2
+	temp.next = address(7)
+	while(temp != null && currPos < (pos - 1)) { => True
+		temp = temp.next
+		currPos++
+	}
+----------------------------------------------------
+	currPos = 1
+	temp.data = 7
+	temp.next = address(13)
+	while(temp != null && currPos < (pos - 1)) { => True
+		temp = temp.next
+		currPos++
+	}
+----------------------------------------------------
+	currPos = 2
+	temp.data = 13
+	temp.next = address(21)
+	while(temp != null && currPos < (pos - 1)) { => True
+		temp = temp.next
+		currPos++
+	}
+----------------------------------------------------
+	currPos = 3
+	temp.data = 21
+	temp.next = address(38)
+	while(temp != null && currPos < (pos - 1)) { => True
+		temp = temp.next
+		currPos++
+	}
+	if(temp == null || temp.next == null) { => False
+	}
+	temp.next = temp.next.next
+head
+   2 7 13 21 38 44 59 66 -1
+   
+head
+   2 7 13 [21] -> 44 59 66 -1
+   return head
+----------------------------------------------------
+output: 2 7 13 21 44 59 66
+
+====================================================
+delete Node recursively
+
+	public static Node<Integer> deleteNoderecursively(Node<Integer> head, int pos) {
+		if(head == null) {
+			return null;
+		}
+		
+		deleteNoderecursively(head.next, pos);
+		return head;
+	}
+----------------------------------------------------

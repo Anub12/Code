@@ -1,0 +1,52 @@
+// Calculate length of the linkedList
+public static int length(Node<Integer> head) {
+	Node<Integer> temp = head;
+	int counter = 0;
+	while(temp != null) {
+		counter++;
+		temp = temp.next;
+	}
+	return counter;
+}
+------------------------------------------------
+head
+10 -> 20 -> 30 -> 40 -> null
+temp.data = 10
+temp.next = 3f8f9dd6
+counter = 0
+while(temp != null) {
+	counter++ => 1
+	temp = temp.next;
+}
+------------------------------------------------
+head
+10 -> 20 -> 30 -> 40 -> null
+temp.data = 20
+temp.next = 3f8f9dd6
+counter = 1
+whle(temp != null) {
+	counter++ => 2
+	temp = temp.next;
+}
+------------------------------------------------
+head
+10 -> 20 -> 30 -> 40 -> null
+temp.data = 30
+temp.next = 3f8f9dd6
+counter = 2
+while(temp != null) {
+	counter++ => 3
+	temp = temp.next;
+}
+------------------------------------------------
+head
+10 -> 20 -> 30 -> 40 -> null
+temp.data = 40
+temp.next = 3f8f9dd6
+counter = 3
+while(temp != null) {
+	counter++ => 4
+	temp = temp.next;
+}
+------------------------------------------------
+output = 4

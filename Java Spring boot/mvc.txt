@@ -1,0 +1,14 @@
+spring mvc is a framework
+
+browser -> view layer -> controller layer -> service layer -> repository layer -> db
+
+
+	   thymeleaf	   handler methods    
+
+
+
+Controller -> handles HTTP requests this has handler methods
+Handler Methods -> method annotated with @RequestMapping => @GetMapping/@PostMapping
+		-> These are defined in Controller
+View -> It merge view and model and forms a plain HTML output
+Model -> view visualize the data that the model contains

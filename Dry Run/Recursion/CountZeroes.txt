@@ -1,0 +1,72 @@
+// I have not solved this question
+public static int countZeroes(int n){
+	int count = 0;
+	if(n == 0){
+		count++;
+		return 0;
+	}
+	int output = count + countZeroes(n/10);
+	if(n%10 == 0){
+		count++;
+	}
+	
+	return output;
+}
+---------------------------------------------------------
+n = 10704
+---------------------------------------------------------
+first call:
+n = 10704
+countZeroes(n)
+n == 0 => False
+count = 0
+output = 0 + countZeroes(n/10) => n/10 = countZeroes(1070)
+10704 % 10 == 0 => 4 == 0 => False
+return 
+---------------------------------------------------------
+second call:
+n = 1070
+countZeroes(n)
+n == 0 => False
+count = 0
+output = count + countZeroes(n/10) => n/10 => countZeroes(107)
+1070 % 10 == 0 => 0 == 0 => True
+count = 1
+return 
+---------------------------------------------------------
+third call:
+n = 107
+countZeroes(n)
+n == 0 => False
+count = 0
+output = 1 + countZeroes(10)
+107 % 10 => 7 == 0 => False
+count = 0
+return 
+---------------------------------------------------------
+fourth call:
+n = 10
+countZeroes(n)
+n == 0 => False
+count = 0
+output = 1 + countZeroes(1)
+10 % 10 => 0 == 0 => True
+count = 1
+return 
+---------------------------------------------------------
+fifth call:
+n = 1
+countZeroes(n)
+n == 0 => False
+output = 2 + countZeroes(0)
+count = 0
+output 1 + countZeroes(0)
+1 % 10 == 0 => 1 == 0 => False
+count = 0
+return 
+---------------------------------------------------------
+sixth call:
+n = 0
+n == 0 => True
+return 1
+---------------------------------------------------------

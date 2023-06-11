@@ -1,0 +1,101 @@
+public static void printSubstrings(String str) {
+		int n = str.length();
+		for(int i = 0; i < n; i++) {
+			for(int j = i; j < n; j++) {
+				for(int k = i; k <= j; k++) {
+					System.out.print(str.charAt(k));
+				}
+				System.out.println();
+			}
+		}
+}
+
+index-> "012345"
+str = 	"abcdef"
+n = 6
+---------------------------------------------
+i = 0 => 0 < 6 => True
+j = 0 => 0 < 6 => True
+k = 0 => 0 <= 0 => True
+Output: a
+k = 1 => 1 <=0 => False
+Break line
+---------------------------------------------
+j = 1 => 1 < 6 => True
+k = 0 => 0 <= 1 => True
+Output: a
+k = 1 => 1 <= 1 => True
+Output: ab
+k = 2 => 2 <= 1 => False
+Break Line
+---------------------------------------------
+j = 2 => 2 < 6 => True
+k = 0 => 0 <= 2 => True
+Output: a
+k = 1 => 1 <= 2 => True
+Output: ab
+k = 2 => 2 <= 2 => True
+Output: abc
+k = 3 => 3 <= 2 => False
+Break Line
+---------------------------------------------
+j = 3 => 3 < 6 => True
+k = 0 => 0 <= 3 => True
+Output: a
+k = 1 => 1 <= 3 => True
+Output: ab
+k = 2 => 2 <= 3 => True
+Output: abc
+k = 3 => 3 <= 3 => True
+Output: abcd
+k = 4 => 4 <= 4 => False
+Break Line
+---------------------------------------------
+j = 4 => 4 < 6 => True
+k = 0 => 0 <= 4 => True
+Output: a
+k = 1 => 1 <= 4 => True
+Output: ab
+k = 2 => 2 <= 4 => True
+Output: abc
+k = 3 => 3 <= 4 => True
+Output: abcd
+k = 4 => 4 <= 4 => True
+Output: abcde
+k = 5 => 5 <= 5 => False
+Break Line
+---------------------------------------------
+j = 5 => 5 < 6 => True
+k = 0 => 0 <= 5 => True
+Output: a
+k = 1 => 1 <=5 => True
+Output: ab
+k = 2 => 2 <= 5 => True
+Output: abc
+k = 3 => 3 <= 5 => True
+Output: abcd
+k = 4 => 4 <= 5 => True
+Output: abcde
+k = 5 => 5 <= 5 => True
+Output: abcdef
+k = 6 => 6 <= 5 => False
+Break Line
+---------------------------------------------
+j = 6 => 6 < 6 => False
+---------------------------------------------
+i = 1 => 1 < 6 => True
+j = 1 => 1 < 6 => True
+k = 1 => 1 <= 1 => True
+Output: b
+k = 2 => 2 <= 2 => False
+Break Line
+---------------------------------------------
+j = 2 => 2 < 6 => True
+k = 1 => 1 <= 2 => True
+Output: b
+k = 2 => 2 <= 2 => True
+Output: bc
+k = 3 => 3 <= 2 => False
+Break Line
+---------------------------------------------
+j = 3 => 

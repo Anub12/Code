@@ -1,0 +1,117 @@
+6:35 PM 6/1/2023
+
+// this question tells that either you append last n to first or first n nodes to last
+
+address(13) represents address of node having data 13
+
+
+public static Node<Integer> appendLastNToFirst(Node<Integer> head, int n) {
+	if(head == null || n == 0) {
+		return head;
+	}
+	
+	Node<Integer> fast = head;
+	Node<Integer> slow = head;
+	Node<Integer> initialhead = head;
+	
+	for(int i = 0; i<n; i++) {
+		fast = fast.next;
+	}
+	
+	while(fast.next != null) {
+		slow = slow.next;
+		fast = fast.next;
+	}
+	
+	Node<Integer> temp = slow.next;
+	slow.next = null;
+	fast.next = initialhead;
+	head = temp;
+	
+	return head;
+}
+
+---------------------------------------------
+ head
+	2 13 19 27 37 49 8 3 -1
+n = 3
+---------------------------------------------
+	if(head == null || n == 0) { => False
+	}
+	
+	Node<Integer> fast = head
+	fast.data = 2
+	fast.next = address(13)
+	Node<Integer> slow = head
+	slow.data = 2
+	slow.next = address(13)
+	Node<Integer> initialhead = head
+	initialhead.data = 2
+	initialhead.next = address(13)
+---------------------------------------------
+	for(int i=0; i<n; i++) {
+		fast = fast.next
+		fast.data = 13
+		fast.next = address(19)
+	}
+---------------------------------------------
+	for(int i=1; i<n; i++) {
+		fast = fast.next
+		fast.data = 19
+		fast.next = address(27)
+	}
+---------------------------------------------
+	for(int i=2; i<n; i++) {
+		fast = fast.next
+		fast.data = 27
+		fast.next = address(37)
+	}
+---------------------------------------------
+	while(fast.next != null) {
+		slow = slow.next
+		slow.data = 13
+		slow.next = address(19)
+		fast = fast.next
+		fast.data = 37
+		fast.next = address(49)
+	}
+---------------------------------------------
+	while(fast.next != null) {
+		slow = slow.next
+		slow.data = 19
+		slow.next = address(27)
+		fast = fast.next
+		fast.data = 49
+		fast.next = address(8)
+	}
+---------------------------------------------
+	while(fast.next != null) {
+		slow = slow.next
+		slow.data = 27
+		slow.next = address(37)
+		fast = fast.next
+		fast.data = 8
+		fast.next = address(3)
+	}
+---------------------------------------------
+	while(fast.next != null) {
+		slow = slow.next
+		slow.data = 37
+		slow.next = address(49)
+		fast = fast.next
+		fast.data = 3
+		fast.next = null
+	}
+---------------------------------------------
+	Node<Integer> temp = slow.next
+	temp.data = 49
+	temp.next = address(8)
+	slow.next = null => updated to null
+	fast.next = initialhead
+	fast.next = 2
+	head = temp
+	head.data = 49
+	head.next = address(8)
+	return head
+---------------------------------------------
+output:- 49 8 3 2 13 19 27 37->null

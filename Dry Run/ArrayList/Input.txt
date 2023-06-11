@@ -1,0 +1,19 @@
+public static Node<Integer> takeInput() {
+   Scanner s = new Scanner(System.in);
+   int data = s.nextInt();
+   Node<Integer> head = null;
+   while(data != -1) {
+      Node<Integer> currentNode = new Node<Integer>(data);
+      if(head == null) {
+         // make this node as head node
+         head = currentNode;
+      } else {
+         Node<Integer> tail = head;
+         while(tail.next != null) {
+            
+	 }
+      }
+   }
+}
+
+-> This is from kali linux

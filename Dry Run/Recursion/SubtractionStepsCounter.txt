@@ -1,0 +1,97 @@
+Write a recursive function in java which returns the value which can be subtracted from the number n and can tell the minimum steps required to subtract it till zero, provided you cannot subtract the number maximum or equal to n.
+
+Code:-
+public static int stepsCounter(int n) {
+	if(n == 0) {
+		return 0;
+	}
+	int output = n - stepsCounter(n-1);
+	return output;
+}
+
+--------------------------------------------------
+n = 45
+stepsCounter(45)
+45 == 0 => False
+output = 45 - stepsCounter(44)
+--------------------------------------------------
+n = 44
+stepsCounter(44)
+44 == 0 => False
+output = 44 - stepsCounter(43)
+--------------------------------------------------
+n = 43
+stepsCounter(43)
+43 == 0 => False
+output = 43 - stepsCounter(42)
+--------------------------------------------------
+|
+|
+|
+|
+--------------------------------------------------
+n = 6
+stepsCounter(6)
+6 == 0 => False
+output = 6 - stepsCounter(5)
+return 3
+--------------------------------------------------
+n = 5
+stepsCounter(5)
+5 == 0 => False
+output = 5 - stepsCounter(4)
+return 3
+--------------------------------------------------
+n = 4
+stepsCounter(4)
+4 == 0 => False
+output = 4 - stepsCounter(3)
+return 2
+--------------------------------------------------
+n = 3
+stepsCounter(3)
+3 == 0 => False
+output = 3 - stepsCounter(2)
+return 2
+--------------------------------------------------
+n = 2
+stepsCounter(2)
+2 == 0 => False
+output = 2 - stepsCounter(1)
+return 1
+--------------------------------------------------
+n = 1
+stepsCounter(1)
+1 == 0 => False
+output = 1 - stepsCounter(0)
+return 1
+--------------------------------------------------
+n = 0
+stepsCounter(0)
+0 == 0 => True
+return 0
+==================================================
+n = 4
+stepsCounter(4)
+4 != 0 => False
+output = 4 - stepsCounter(3)
+return 2
+--------------------------------------------------
+n = 3
+stepsCounter(3)
+3 != 0 => False
+output = 3 - stepsCounter(2)
+return 2
+--------------------------------------------------
+n = 2
+stepsCounter(2)
+2 != 0 => False
+output = 2 - stepsCounter(1)
+return 1
+--------------------------------------------------
+n = 1
+stepsCounter(1)
+1 != 0 => False
+output = 1 - stepsCounter(0)
+return 1
+--------------------------------------------------

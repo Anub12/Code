@@ -1,0 +1,90 @@
+public static String replaceChar(String input, char c1, char c2) {
+	if(input.length() == 0) {
+		return "";
+	}
+	char c;
+	if(input.charAt(0) == c1) {
+		c = c2;
+	}
+	else {
+		c = input.charAt(0);
+	}
+		
+	String ans = replaceChar(input.substring(1), c1, c2);
+	return (c + ans);
+}
+--------------------------------------------------------------
+index-> 0123456
+input =	abacadx
+c1 = a
+c2 = x
+--------------------------------------------------------------
+first call:
+index-> 0123456
+input = abacadx
+7 == 0 => False
+input.charAt(0) == 'a' => True
+c = c2 => c = x
+ans = replaceChar("bacadx", a, x)
+return (c+ans) => x+"bxcxdx" => "xbxcxdx"
+--------------------------------------------------------------
+second call:
+index-> 012345
+input =	bacadx
+6 == 0 => False
+input.charAt(0) == 'a' => False
+c = input.charAt(0) => c = b
+ans = replaceChar("acadx", a, x)
+return (c+ans) => b+"xcxdx" => "bxcxdx" 
+--------------------------------------------------------------
+third call:
+index-> 01234
+input =	acadx
+5 == 0 => False
+input.charAt(0) == 'a' => True
+c = c2 => c = x
+ans = replaceChar("cadx", a, x)
+return (c+ans) => x+"cxdx" => "xcxdx"
+--------------------------------------------------------------
+fourth call:
+index-> 0123
+input =	cadx
+4 == 0 => False
+input.charAt(0) == 'a' => False
+c = input.charAt(0) => c = c
+ans = replaceChar("adx", a, x)
+return (c+ans) => c+"xdx" => "cxdx"
+--------------------------------------------------------------
+fifth call:
+index-> 012
+input =	adx
+3 == 0 => False
+input.charAt(0) == 'a' => True
+c = c2 => c = x
+ans = replaceChar("dx", a, x)
+return (c+ans) => x+"dx" => "xdx"
+--------------------------------------------------------------
+sixth call:
+index-> 01
+input =	dx
+2 == 0 => False
+input.charAt(0) == 'a' => False
+c = input.charAt(0) => c = d
+ans = replaceChar("x", a, x)
+return (c+ans) => d+"x" => "dx"
+--------------------------------------------------------------
+seventh call:
+index-> 0
+input = x
+1 == 0 => False
+input.charAt(0) == 'a' => False
+c = input.charAt(0) => c = x
+ans = replaceChar("", a, x)
+return (c+ans) => x+"" => "x"
+--------------------------------------------------------------
+eighth call:
+index-> 0
+input = ""
+0 == 0 => True
+return ""
+--------------------------------------------------------------

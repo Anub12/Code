@@ -1,0 +1,167 @@
+public static boolean checkPermutation(String st){
+	
+	return true;
+}
+
+str1 = "sinrtg" 
+str2 = "string"
+can we use string compare function?
+No, It gives an integer output which is basically the difference between the outputs of first two distinguish chars.
+
+a 97
+b 98
+c 99
+d 100
+e 101
+f 102
+g 103
+h 104
+i 105
+j 106
+k 107
+l 108
+m 109
+n 110
+o 111
+p 112
+q 113
+r 114
+s 115
+t 116
+u 117
+v 118
+w 119
+x 120
+y 121
+z 122
+
+if we use compareTo function on above strings output will be
+int output = st1.compareTo(st2);
+output = -11
+
+
+public static boolean checkPermutation(String st1, String st2) {
+	if(st1.length() != st2.length()) {
+		return false;
+	}
+	int[] arr = new int[256];
+	for(int i = 0; i < arr.length; i++) {
+		arr[i] = 0;
+	}
+	for(int i = 0; i < st1.length(); i++) {
+		char ch = st1.charAt(i);
+		++arr[ch];
+	}
+	for(int i = 0; i < st2.length(); i++) {
+		char ch = st2.charAt(i);
+		--arr[ch];
+	}
+	for(int i = 0; i < 256; i++) {
+		if(arr[i] != 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+----------------------------------------------------
+st1 = "**#$%"
+st2 = "*#%$*"
+
+
+public static boolean checkPermutation(String st1, String st2) {
+	if(st1.length() != st2.length()) {
+		return false;
+	}
+	int[] arr = new int[256];
+	for(int i = 0; i < arr.length; i++) {
+		arr[i] = 0;
+	}
+	for(int i = 0; i < st1.length(); i++) {
+		char ch = st1.charAt(i);
+		++arr[ch];
+	}
+	for(int i = 0; i < st2.length(); i++) {
+		char ch = st2.charAt(i);
+		--arr[ch];
+	}
+	for(int i = 0; i < 256; i++) {
+		if(arr[i] != 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+st1 = "**#$%"
+st2 = "*#%$*"
+------------------------------------------------
+5 == 5 => True
+index-> {0,1,2,3,4,5,6,7 - - - - - - - - 255}
+arr[] = {0,0,0,0,0,0,0,0 - - - - - - - - 0}
+i = 0 => 0 < 5 => True
+ch = st[0] = *
+arr[ch] += 1 => arr[42] = 1
+index-> {0,1,2,3,4,5,6,7 - - - - 42- - - - 255}
+arr[] = {0,0,0,0,0,0,0,0 - - - - 1 - - - 0}
+
+i = 1 => 1 < 5 => True
+ch = st[1] = *
+arr[ch] += 1 => arr[42] = 1
+index-> {0,1,2,3,4,5,6,7 - - - - 42- - - - 255}
+arr[] = {0,0,0,0,0,0,0,0 - - - - 2 - - - 0}
+
+i = 2 => 2 < 5 => True
+ch = st[2] = #
+arr[ch] += 1 => arr[35] = 1
+index-> {0,1,2,3,4,5,6,7 - - 35 - - 42- - - - 255}
+arr[] = {0,0,0,0,0,0,0,0 - - 1 - 2 - - - 0}
+
+i = 3 => 3 < 5 => True
+ch = st[3] = $
+arr[ch] += 1 => arr[36] = 1
+index-> {0,1,2,3,4,5,6,7 - - 35,36 - - 42- - - - 255}
+arr[] = {0,0,0,0,0,0,0,0 - - 1, 1 - 2 - - - 0}
+
+i = 4 => 4 < 5 => True
+ch = st[4] = %
+arr[ch] += 1 => arr[37] = 1
+index-> {0,1,2,3,4,5,6,7 - - 35,36,37 - - 42- - - - 255}
+arr[] = {0,0,0,0,0,0,0,0 - - 1, 1, 1 - - - 2 - - - 0}
+
+i = 5 => 5 < 5 => False
+------------------------------------------------
+i = 0 => 0 < 5 => True
+ch = st[0] = *
+arr[ch] -= 1 => arr[42] -= 1
+index-> {0,1,2,3,4,5,6,7 - - 35,36,37 - - 42- - - - 255}
+arr[] = {0,0,0,0,0,0,0,0 - - 1, 1, 1 - - - 1 - - - 0}
+
+i = 1 => 1 < 5 => True
+ch = st[1] = #
+arr[ch] -= 1 => arr[35] -= 1
+index-> {0,1,2,3,4,5,6,7 - - 36,37 - - 42- - - - 255}
+arr[] = {0,0,0,0,0,0,0,0 - - 1, 1 - - - 1 - - - 0}
+
+i = 2 => 2 < 5 => True
+ch = st[2] = %
+arr[ch] -= 1 => arr[37] -= 1
+index-> {0,1,2,3,4,5,6,7 - - 36 - - 42- - - - 255}
+arr[] = {0,0,0,0,0,0,0,0 - - 1 - - - 1 - - - - 0}
+
+i = 3 => 3 < 5 => True
+ch = st[2] = $
+arr[ch] -= 1 => arr[37] -= 1
+index-> {0,1,2,3,4,5,6,7 - - - - - 42- - - - 255}
+arr[] = {0,0,0,0,0,0,0,0 - - - - - - 1 - - - - 0}
+
+i = 4 => 4 < 5 => True
+ch = st[0] = *
+arr[ch] -= 1 => arr[42] -= 1
+index-> {0,1,2,3,4,5,6,7 - - - - - - - - - 255}
+arr[] = {0,0,0,0,0,0,0,0 - - - - - - - - - - 0}
+------------------------------------------------
+i = 0 => 0 < 5 => True
+arr[0] == 0 => False
+// condition is false for all values of arr
+Hence return true

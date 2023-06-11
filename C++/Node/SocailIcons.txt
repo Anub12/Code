@@ -1,0 +1,9 @@
+<div>
+                <ul class="horizontal-list text-center">
+                    <li><a href="#"><img src="./Image//Icons/linkedin.svg">Linkedin</a></li>
+                    <li><a href="#"><img src="./Image//Icons/instagram.svg">Instagram</a></li>
+                    <li><a href="#"><img src="./Image//Icons/facebook.svg">Facebook</a></li>
+                    <li><a href="#"><img src="./Image//Icons/twitter.svg">Twitter</a></li>
+                    <li><a href="#"><img src="./Image//Icons/youtube.svg">Youtube</a></li>
+                </ul>
+            </div>

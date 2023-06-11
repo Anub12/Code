@@ -1,0 +1,4 @@
+﻿  Source1.cpp
+C:\Users\Robin\source\repos\Graphs\Source1.cpp(9,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Robin\source\repos\Graphs\Source1.cpp(75,10): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Graphs.vcxproj -> C:\Users\Robin\source\repos\Graphs\Debug\Graphs.exe

@@ -1,0 +1,28 @@
+// Last Index
+public static int lastIndex(int[] arr, int x, int startIndex) {
+	if(startIndex == 0) {
+		return -1;
+	}
+	if(arr[startIndex] == x) {
+		return startIndex;
+	}
+	return lastIndex(arr,x,startIndex-1);
+}
+
+----------------------------------------------------------------
+index-> {0,1,2 ,3,4,5,6,7,8,9,10}
+arr[] = {9,8,10,8,4,2,1,7,6,5,3 }
+x = 8
+lastIndex(arr,x,10)
+----------------------------------------------------------------
+startIndex = 10
+10 == 0 => False
+arr[10] == x => 3 == 8 => False
+return lastIndex(arr,x,9)
+----------------------------------------------------------------
+startIndex = 9
+9 == 0 => False
+arr[9] == x => 5 == 8
+return lastIndex(arr,x,8)
+
+// This way the code will work

@@ -1,0 +1,9 @@
+<form>
+	<select name="month_selected">
+		<option selected> Jan </option>
+		<option> Feb </option>
+		<option> March </option>
+	</select>
+
+	<button type="button" onclick="document.location='default.asp'"> <img src="./background-2.jpg" ></button>
+</form>

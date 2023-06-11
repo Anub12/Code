@@ -1,0 +1,65 @@
+Recursion
+n! = n(n-1)(n-2)(n-3)- - - - - - - 3.2.1
+n! = n(n-1)!
+(n-1)! = (n-1)(n-2)!
+(n-2)! = (n-2)(n-3)!
+	|						|
+	|						|
+	|						|
+3! = 3.2.1
+2! = 2.1
+1! = 1
+
+// Code
+public static int fact(int n) {
+	// Base Case
+	if(n == 0) {
+		return 1;
+	}
+	// recursion call
+	int output = fact(n-1);
+	// small calculation
+	return output * n;
+}
+
+public static void main(String[] args){
+	int n = 4;
+	fact(4);
+}
+
+------------------------------------------------
+first call:
+n = 4
+fact(4)
+n != 0 => False
+output = fact(3)
+return 4 * 6 => 24
+------------------------------------------------
+second call:
+n = 3
+fact(3)
+n != 0 => False
+output = fact(2)
+return 3 * 2 => 6
+------------------------------------------------
+third call:
+n = 2
+fact(2)
+n != 0 => False
+output = fact(1)
+return 2 * 1 => 2
+------------------------------------------------
+fourth call:
+n = 1
+fact(1)
+n != 0 => False
+output = fact(0)
+return 1 * fact(0) => 1
+------------------------------------------------
+fifth call:
+n = 0
+fact(0)
+n == 0 => True
+return => 1
+------------------------------------------------
+

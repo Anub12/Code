@@ -1,0 +1,17 @@
+:root{
+    --primary: #333;
+    --secondary: #fd384d;
+    --heaven: #03fc90;
+    --dark: #282b29;
+}
+
+a {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+}
+
+a:hover {
+    box-shadow: inset 100px 0 0 0 #54b3d6;
+    color: white;
+}

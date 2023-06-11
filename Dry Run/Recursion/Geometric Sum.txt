@@ -1,0 +1,36 @@
+Geometric Sum
+1 + 1/2 + 1/4 + 1/8 + - - - - - + 1/(2^k)
+
+public static double geometricSum(int n) {
+	if(n == 0) {
+		return 1;
+	}
+		
+	return 1/Power.power(2, n) + geometricSum(n-1);
+}
+-----------------------------------------------------
+geometricSum(3)
+n = 3
+-----------------------------------------------------
+first call:
+n = 3
+n == 0 => 3 == 0 => False
+output = 1/power(2,3) + geometricSum(2)
+return 1.875
+-----------------------------------------------------
+second call:
+n = 2
+n == 0 => 2 == 0 => False
+output = 1/power(2,2) + geometricSum(1)
+return 1.75
+-----------------------------------------------------
+third call:
+n = 1
+n == 0 => 1 == 0 => False
+output = 1/power(2,1) + geometricSum(0)
+return 1.5
+-----------------------------------------------------
+fourth call:
+n = 0
+n == 0 => 0 == 0 => True
+return 1

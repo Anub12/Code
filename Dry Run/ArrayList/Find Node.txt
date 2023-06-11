@@ -1,0 +1,80 @@
+6:15 PM 6/1/2023
+
+// Find a node in linkedlist
+
+address(13) represents address of node having data 13
+
+public static int findNode(Node<Integer> head, int val){
+	if(head == null) {
+		return -1;
+	}
+	int i = 0;
+	Node<Integer> temp = head;
+	while(temp != null) {
+		if(temp.data.equals(val)) {
+			return i;
+		}
+		i++;
+		temp = temp.next;
+	}
+	return -1;
+}
+--------------------------------------------
+ head
+	2 13 19 27 37 49 8 3 -1
+val = 3
+--------------------------------------------
+	if(head == null) { => False
+	}
+	i = 0
+	Node<Integer> temp = head
+	temp.data = 2
+	temp.next = address(13)
+	while(temp != null) {
+		if(temp.data.equals(val)) { => False
+		}
+		temp = temp.next
+	}
+--------------------------------------------
+temp.data = 13
+temp.next = address(19)
+	while(temp != null)) {
+		if(temp.data.equals(val)) { => False
+		}
+		temp = temp.next
+	}
+--------------------------------------------
+temp.data = 19
+temp.next = address(27)
+	while(temp != null) {
+		if(temp.data.equals(val)) { => False
+		}
+		temp = temp.next
+	}
+--------------------------------------------
+temp.data = 27
+temp.next = address(37)
+	while(temp != null) {
+		if(temp.data.equals(val)) { => False
+		}
+		temp = temp.next
+	}
+--------------------------------------------
+temp.data = 8
+temp.next = address(3)
+	while(temp != null) {
+		if(temp.data.equals(val)) { => False
+		}
+		temp = temp.next
+	}
+--------------------------------------------
+temp.data = 3
+temp.next = null
+	while(temp != null) {
+		if(temp.data.equals(val)) { => True
+			i++
+			return i
+		}
+		temp = temp.next
+	}
+--------------------------------------------

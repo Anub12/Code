@@ -1,0 +1,6 @@
+<form action = "" method="">
+	<p> Share your Experience </p>
+	<textarea name="comments" rows="10" columns="30"></textarea>
+	<br>
+	<input type="submit" value="submit">
+</form>

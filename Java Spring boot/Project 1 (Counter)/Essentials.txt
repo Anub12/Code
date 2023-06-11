@@ -1,0 +1,9 @@
+// essentials
+
+A website with white background and having a counter which counts how much time is left till the day completes
+
+// I have tried to make the countdown timer with LocalTime class
+// However I don't have a proper way to show it on the website yet
+
+This can't be done in java, it is a front end portion and only possible to do through
+javascript

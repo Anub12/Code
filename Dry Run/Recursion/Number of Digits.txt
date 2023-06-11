@@ -1,0 +1,28 @@
+public static int calculateDigits(int n) {
+	int count = 0;
+	// base case
+	if(n <= 0) {
+		return 1;
+	}
+		
+//		int output = n % 10;
+	count++;
+	// recursion
+	calculateDigits(n / 10);
+	n = n / 10;
+	count++;
+	return count;
+}
+--------------------------------------------------
+n = 5081
+calculateDigits(n)
+--------------------------------------------------
+count = 0
+5081 <=0 => False
+calcualteDigits(508)
+n = 508
+count++ => count = 1
+--------------------------------------------------
+count = 0
+508 <= 0 => False
+calcualteDigits(50)

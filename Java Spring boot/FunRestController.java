@@ -13,3 +13,5 @@ public class FunRestController {
         return "Hello World!";
     }
 }
+
+// This is a Controller method in java spring boot
